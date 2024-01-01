@@ -35,7 +35,7 @@ export class FilmService {
     const url = `${this.filmsUrl}/${id}`;
     return this.http.get<Film>(url).pipe(
       tap(() => this.log(`fetched film id=${id}`)),
-      catchError(this.handleError<Film>(`getFilm id=${id}`))
+      catchError(this.handleError<Film>(`getFilm id=${_id}`))
     );
   }
 

@@ -1,0 +1,17 @@
+@use '@angular/material' as mat;
+
+// SHARED COMPONENT THEMES
+@use '../app/shared/announcement-banner/announcement-banner-theme';
+@use '../app/shared/cookie-popup/cookie-popup-theme';
+@use '../app/shared/footer/footer-theme';
+@use '../app/shared/header/header-theme';
+@use '../app/shared/hero/hero-theme';
+
+// PAGE THEMES
+
+
+// FILM COMPONENT THEMES
+
+@mixin theme($theme) {
+    @use 
+}
