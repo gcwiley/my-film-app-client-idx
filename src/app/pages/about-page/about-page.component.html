@@ -1,0 +1,18 @@
+<app-header></app-header>
+<app-announcement-banner></app-announcement-banner>
+
+<mat-grid-list class="container" [cols]="cols" [rowHeight]="rowHeight" [gutterSize]="gutterSize">
+
+  <mat-grid-tile [colspan]="colspan">
+    <!-- ABOUT ME TEXT -->
+    <app-about></app-about>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <!-- TOPIC LIST -->
+    <app-topic-list></app-topic-list>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+<app-footer></app-footer>
