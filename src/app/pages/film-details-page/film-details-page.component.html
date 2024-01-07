@@ -1,5 +1,21 @@
 <app-header></app-header>
+<app-announcement-banner></app-announcement-banner>
 
+<mat-grid-list class="container" [cols]="cols" [rowHeight]="rowHeight" [gutterSize]="gutterSize">
+
+    <mat-grid-tile>
+        <!-- Film Description -->
+        <app-film-description></app-film-description>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <!-- Film Details and action bar -->
+        <app-film-details></app-film-details>
+        <app-film-actionbar></app-film-actionbar>
+    </mat-grid-tile>
+
+
+</mat-grid-list>
 
 
 <app-footer></app-footer>
