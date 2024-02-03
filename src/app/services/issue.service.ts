@@ -68,7 +68,7 @@ export class IssueService {
     // SAVE METHODS //
 
     // POST: add a new issue to the server
-    addIssue(newIssue: Issue | any): Observable<Issue> {
+    addIssue(newIssue: Issue): Observable<Issue> {
         return this.http.post<Issue>(this.issuesUrl, newIssue, this.httpOptions).pipe(
             tap((newIssue: Issue) => this.log(`added issue with id=${newIssue._id}`)),
             catchError(this.handleError<Issue>('addHero'))
@@ -77,6 +77,7 @@ export class IssueService {
 
     // DELETE an issue by ID from the server
     deleteIssue(id: string): Observable<Issue> {
+        // crete the url
         const url = `${this.issuesUrl}/${id}`;
 
         return this.http.delete<Issue>(url, this.httpOptions).pipe(
@@ -86,8 +87,11 @@ export class IssueService {
     }
 
     // PUT: update the issue in the database
-    updateIssue(issue: Issue | any): Observable<any> {
-        return this.http.put(this.issuesUrl, issue, this.httpOptions).pipe(
+    updateIssue(id: string, issue: Issue): Observable<any> {
+        // create the url
+        const url = `${this.issuesUrl}/${id}`
+
+        return this.http.patch(url, issue, this.httpOptions).pipe(
             tap(() => this.log(`updated issue id=${issue._id}`)),
             catchError(this.handleError<Issue>('updateIssue'))
         );

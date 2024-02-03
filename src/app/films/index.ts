@@ -1,5 +1,5 @@
 export { FavoriteFilmsComponent } from "./favorite-films/favorite-films.component";
-export { FilmActionbarComponent } from "./film-action-bar/film-action-bar.component";
+export { FilmListComponent } from "./film-list/film-list.component";
 export { FilmCarouselComponent } from "./film-carousel/film-carousel.component";
 export { FilmDetailsComponent } from "./film-details/film-details.component";
 export { FilmFormComponent } from "./film-form/film-form.component";

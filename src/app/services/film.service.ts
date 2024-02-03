@@ -32,10 +32,12 @@ export class FilmService {
 
    // GET: film by id - Will 404 if id is not found
    getFilm(id: string | null): Observable<Film> {
+      // create the url
       const url = `${this.filmsUrl}/${id}`;
+
       return this.http.get<Film>(url).pipe(
          tap(() => this.log(`fetched film id=${id}`)),
-         catchError(this.handleError<Film>(`getFilm id=${film._id}`))
+         catchError(this.handleError<Film>(`get Film id=${id}`))
       );
    }
 
@@ -52,8 +54,8 @@ export class FilmService {
    }
 
    // GET: film count from database
-   getFilmCount(): Observable<Object> {
-      return this.http.get<any>('/api/film-count');
+   getFilmCount(): Observable<number> {
+      return this.http.get<number>('/api/film-count');
    }
 
    // GET: recent films added
@@ -69,15 +71,16 @@ export class FilmService {
    // SAVE METHODS //
 
    // POST: add a new film to the server
-   addFilm(newFilm: Film | any): Observable<Film> {
+   addFilm(newFilm: Film | object): Observable<Film> {
       return this.http.post<Film>(this.filmsUrl, newFilm, this.httpOptions).pipe(
-         tap((newFilm: Film) => this.log(`added film with id=${newFilm.id}`)),
+         tap((newFilm: Film) => this.log(`added film with id=${newFilm._id}`)),
          catchError(this.handleError<Film>('addFilm'))
       );
    }
 
    // DELETE: a film by ID from the server
    deleteFilm(id: string): Observable<Film> {
+      // create the url
       const url = `${this.filmsUrl}/${id}`;
 
       return this.http.delete<Film>(url, this.httpOptions).pipe(
@@ -87,12 +90,13 @@ export class FilmService {
    }
 
    // PUT: update a film by ID on the server
-   updateFilm(id: any, film: any): Observable<any> {
+   updateFilm(id: string, film: Film | object): Observable<object> {
+      // create the url
       const url = `${this.filmsUrl}/${id}`;
 
-      return this.http.put(url, film, this.httpOptions).pipe(
-         tap(() => this.log(`updated film id=${film._id}`)),
-         catchError(this.handleError<any>('updateFilm'))
+      return this.http.patch(url, film, this.httpOptions).pipe(
+         tap(() => this.log(`updated film id=${id}`)),
+         catchError(this.handleError<object>('updateFilm'))
       );
    }
 
@@ -104,7 +108,7 @@ export class FilmService {
    // let the app continue
 
    private handleError<T>(operation = 'operation', result?: T) {
-      return (error: any): Observable<T> => {
+      return (error: Error): Observable<T> => {
          // TODO: send the error to remote logging infrastructure
          console.error(error); // log to console instead
 

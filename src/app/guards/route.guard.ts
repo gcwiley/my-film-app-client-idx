@@ -18,8 +18,9 @@ export class RouteGuard {
                return true;
             }
 
-            // if not logged in, redirect to login page
-            return this.router.navigateByUrl('/signin');
+            // if not authenicated, send user back to the sign in page
+            this.router.navigateByUrl('/signin');
+            return false;
          })
       );
    }

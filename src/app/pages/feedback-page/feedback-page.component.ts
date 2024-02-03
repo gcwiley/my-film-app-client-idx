@@ -28,12 +28,7 @@ export class FeedbackPageComponent implements OnInit {
    // responsive code
    layoutChanges(): void {
       this.breakpointObserver
-         .observe([
-            Breakpoints.TabletPortrait,
-            Breakpoints.TabletLandscape,
-            Breakpoints.HandsetPortrait,
-            Breakpoints.HandsetLandscape,
-         ])
+         .observe([Breakpoints.TabletPortrait, Breakpoints.TabletLandscape, Breakpoints.HandsetPortrait, Breakpoints.HandsetLandscape])
          .subscribe((result) => {
             const breakpoints = result.breakpoints;
             // check to see if viewport is in table portrait mode

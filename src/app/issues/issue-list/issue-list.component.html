@@ -1,1 +1,26 @@
-<p>issue-list works!</p>
+<table mat-table [dataSource]="dataSource">
+
+   <!-- Title Column -->
+   <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let issue">{{ issue.title }}</td>
+   </ng-container>
+
+   <!-- Position Column -->
+   <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+   </ng-container>
+
+   <!-- Position Column -->
+   <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+   </ng-container>
+
+   <!-- Position Column -->
+   <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+   </ng-container>
+</table>

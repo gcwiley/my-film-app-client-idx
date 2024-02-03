@@ -3,14 +3,14 @@
 
 // color mixin
 @mixin color($theme) {
-   .reset-password-page {
+   .header {
       color: mat.get-theme-color($theme, accent, 200-contrast);
       background-color: mat.get-theme-color($theme, accent, 200);
    }
 }
 // typography mixin
 @mixin typography($theme) {
-   .reset-password-page {
+   .header {
       font: mat.get-theme-typography($theme, headline-1);
    }
 }

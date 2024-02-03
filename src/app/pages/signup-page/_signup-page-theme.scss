@@ -3,14 +3,14 @@
 
 // color mixin
 @mixin color($theme) {
-   .signup-page {
+   .signup-page-container {
       color: mat.get-theme-color($theme, accent, 200-contrast);
       background-color: mat.get-theme-color($theme, accent, 200);
    }
 }
 // typography mixin
 @mixin typography($theme) {
-   .signup-page {
+   .signup-page-container {
       font: mat.get-theme-typography($theme, headline-1);
    }
 }
